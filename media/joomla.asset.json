@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "mod_mapbox",
+  "version": "1.0.0",
+  "description": "Joomla Module Mapbox",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "mod_mapbox.custom",
+      "type": "script",
+      "uri": "mod_mapbox/custom.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "1.0.0"
+    },
+    {
+      "name": "mapbox",
+      "type": "script",
+      "uri": "mod_mapbox/mapbox.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "1.0.0"
+    },
+    {
+      "name": "mod_mapbox.style",
+      "type": "style",
+      "uri": "mod_mapbox/style.css",
+      "version": "1.0.0"
+    },
+    {
+      "name": "stylemapbox",
+      "type": "style",
+      "uri": "mod_mapbox/mapbox.css",
+      "version": "1.0.0"
+    }
+  ]
+}

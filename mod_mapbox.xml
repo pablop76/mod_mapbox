@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+    <name>MOD_MAPBOX_NAME</name>
+    <version>1.0.2</version>
+    <author>pablo76</author>
+    <creationDate>15.09.2024</creationDate>
+    <description>MOD_MAPBOX_DESCRIPTION</description>
+    <namespace path="src">Pablop76\Module\Mapbox</namespace>
+    <files>
+        <folder module="mod_mapbox">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+    </files>
+    <scriptfile>script.php</scriptfile>
+    <media destination="mod_mapbox" folder="media">
+        <filename>joomla.asset.json</filename>
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="tokenmapbox"
+                    type="text"
+                    label="MOD_MAPBOX_TOKEN_MAPBOX"
+                    >
+                </field>
+                <field
+                    name="stylemapbox"
+                    type="text"
+                    label="MOD_MAPBOX_STYLE_MAPBOX"
+                    >
+                </field>
+                <field
+                    name="longitudemapbox"
+                    type="number"
+                    label="MOD_MAPBOX_LONGITUDE_MAPBOX"
+                    >
+                </field>
+                <field
+                    name="latitudemapbox"
+                    type="number"
+                    label="MOD_MAPBOX_LATITUDE_MAPBOX"
+                    >
+                </field>
+                <field
+                    name="zoommapbox"
+                    type="integer"
+                    label="MOD_MAPBOX_ZOOM_MAPBOX"
+                    first="0" last="15" step="1"
+                    >
+                </field>
+                <field
+                    name="geotitle"
+                    type="text"
+                    label="MOD_MAPBOX_GEOTITLE_MAPBOX"
+                    >
+                </field>
+                <field
+                    name="geodescription"
+                    type="text"
+                    label="MOD_MAPBOX_GEODESCRIPTION_MAPBOX"
+                    >
+                </field>
+                <field
+                    name="markermapbox"
+                    type="media"
+                    label="MOD_MAPBOX_MARKER_MAPBOX"
+                    >
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
