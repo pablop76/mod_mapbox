@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade">
     <name>MOD_MAPBOX_NAME</name>
-    <version>1.0.2</version>
+    <version>1.1.1</version>
     <author>pablo76</author>
-    <creationDate>15.09.2024</creationDate>
+    <creationDate>26.09.2024</creationDate>
     <description>MOD_MAPBOX_DESCRIPTION</description>
     <namespace path="src">Pablop76\Module\Mapbox</namespace>
     <files>
@@ -73,4 +73,8 @@
             </fieldset>
         </fields>
     </config>
+    <updateservers>
+        <!-- Change the URL below to match that of your own update development environment -->
+        <server type="extension" name="Mapbox Module Updates">https://github.com/pablop76/mod_mapbox/blob/main/mod_mapbox.xml</server>
+    </updateservers>
 </extension>
