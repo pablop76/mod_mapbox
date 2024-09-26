@@ -4,12 +4,12 @@
         <description>Mapbox Joomla Module</description>
         <element>mod_mapbox</element>
         <type>module</type>
-        <version>1.1.0</version>
+        <version>1.0.1</version>
         <client>site</client>
         <downloads>
-            <downloadurl type="full" format="zip">http://localhost/joom/updateserver/mod_mapbox-v1-1-1.zip</downloadurl>
+            <downloadurl type="full" format="zip">http://web-service.com.pl/joomla/updateserver/mapbox/mod_mapbox-v1-0-1.zip</downloadurl>
         </downloads>
-        <infourl>http://localhost/joom/updateserver/mod_mapbox111.html</infourl>
+        <infourl>http://web-service.com.pl/joomla/updateserver/mapbox/mod_mapbox101.html</infourl>
         <targetplatform name="joomla" version="((4\.4)|(5\.(0|1|2|3|4|5|6|7|8|9)))" />
     </update>
 </updates>
