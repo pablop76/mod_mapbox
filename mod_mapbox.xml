@@ -75,6 +75,6 @@
     </config>
     <updateservers>
         <!-- Change the URL below to match that of your own update development environment -->
-        <server type="extension" name="Mapbox Module Updates">http://web-service.com.pl/joomla/updateserver/mapbox/mod_mapbox.xml</server>
+        <server type="extension" name="Mapbox Module Updates">http://web-service.com.pl/joomla/updateserver/mapbox/updates.xml</server>
     </updateservers>
 </extension>
