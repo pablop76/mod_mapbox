@@ -1,2 +1,5 @@
 # ignore ALL files in ANY directory named joomla
 joomla/
+# ignore file named temlate.png
+template.png
+configuration.png
