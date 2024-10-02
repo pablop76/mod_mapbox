@@ -4,8 +4,9 @@ if (!window.Joomla) {
 
 const { tokenmapbox } = Joomla.getOptions("mod_mapbox.vars");
 const { stylemapbox } = Joomla.getOptions("mod_mapbox.vars");
-const { longitudemapbox } = Joomla.getOptions("mod_mapbox.vars");
-const { latitudemapbox } = Joomla.getOptions("mod_mapbox.vars");
+// const { longitudemapbox } = Joomla.getOptions('mod_mapbox.vars');
+// const { latitudemapbox } = Joomla.getOptions('mod_mapbox.vars');
+const { listofpoints } = Joomla.getOptions("mod_mapbox.vars");
 const { zoommapbox } = Joomla.getOptions("mod_mapbox.vars");
 const { geotitle } = Joomla.getOptions("mod_mapbox.vars");
 const { geodescription } = Joomla.getOptions("mod_mapbox.vars");
@@ -13,28 +14,42 @@ const { markermapbox } = Joomla.getOptions("mod_mapbox.vars");
 document.addEventListener("DOMContentLoaded", function () {
   mapboxgl.accessToken = tokenmapbox;
 
+  let originalData = listofpoints;
+  // Iteracja po istniejących punktach
+  // Tworzymy tablicę, która będzie zawierać nowe obiekty typu "Feature"
+  let features = [];
+  for (let key in originalData) {
+    let point = originalData[key];
+
+    // Tworzenie nowej struktury typu "Feature" dla każdego punktu
+    let feature = {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [parseFloat(point.longitudemapbox), parseFloat(point.latitudemapbox)],
+      },
+      properties: {
+        title: point.geotitle,
+        description: point.geodescription,
+      },
+    };
+
+    // Dodawanie nowego obiektu do tablicy features
+    features.push(feature);
+  }
+
+  // Wyświetlenie wyniku
+  console.log(features[0].geometry.coordinates[0]);
   const geojson = {
     type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [longitudemapbox, latitudemapbox],
-        },
-        properties: {
-          title: geotitle,
-          description: geodescription,
-        },
-      },
-    ],
+    features: features,
   };
-
+  //ustawienie m.innymi znacznika pierwszej koordynaty w centrum mapy
   const map = new mapboxgl.Map({
     container: "map",
     style: stylemapbox,
     zoom: zoommapbox,
-    center: [longitudemapbox, latitudemapbox],
+    center: [features[0].geometry.coordinates[0], features[0].geometry.coordinates[1]],
   });
 
   // add markers to map

@@ -12,8 +12,9 @@ $wa->useStyle('stylemapbox');
 
 $tokenmapbox = $params->get('tokenmapbox', '');
 $stylemapbox = $params->get('stylemapbox', 'mapbox://styles/mapbox/streets-v12');
-$longitudemapbox = $params->get('longitudemapbox', '-73,990593');
-$latitudemapbox = $params->get('latitudemapbox', '40,740121');
+// $longitudemapbox = $params->get('longitudemapbox', '-73,990593');
+// $latitudemapbox = $params->get('latitudemapbox', '40,740121');
+$listofpoints = $params->get('listofpoints', '');
 $zoommapbox = $params->get('zoommapbox', '1');
 $geotitle = $params->get('geotitle', '');
 $geodescription = $params->get('geodescription', '');
@@ -21,8 +22,9 @@ $markermapbox = $params->get('markermapbox', '');
 
 $document->addScriptOptions('mod_mapbox.vars', ['tokenmapbox' => $tokenmapbox]);
 $document->addScriptOptions('mod_mapbox.vars', ['stylemapbox' => $stylemapbox]);
-$document->addScriptOptions('mod_mapbox.vars', ['longitudemapbox' => $longitudemapbox]);
-$document->addScriptOptions('mod_mapbox.vars', ['latitudemapbox' => $latitudemapbox]);
+// $document->addScriptOptions('mod_mapbox.vars', ['longitudemapbox' => $longitudemapbox]);
+// $document->addScriptOptions('mod_mapbox.vars', ['latitudemapbox' => $latitudemapbox]);
+$document->addScriptOptions('mod_mapbox.vars', ['listofpoints' => $listofpoints]);
 $document->addScriptOptions('mod_mapbox.vars', ['zoommapbox' => $zoommapbox]);
 $document->addScriptOptions('mod_mapbox.vars', ['geotitle' => $geotitle]);
 $document->addScriptOptions('mod_mapbox.vars', ['geodescription' => $geodescription]);
