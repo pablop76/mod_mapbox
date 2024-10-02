@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade">
     <name>MOD_MAPBOX_NAME</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <author>pablo76</author>
     <creationDate>02.10.2024</creationDate>
     <description>MOD_MAPBOX_DESCRIPTION</description>
@@ -78,7 +78,7 @@
                 </field>
                 <field
                     name="markermapbox"
-                    type="media"
+                    type="accessiblemedia"
                     label="MOD_MAPBOX_MARKER_MAPBOX"
                 >
                 </field>

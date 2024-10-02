@@ -13,7 +13,7 @@ const { geodescription } = Joomla.getOptions("mod_mapbox.vars");
 const { markermapbox } = Joomla.getOptions("mod_mapbox.vars");
 document.addEventListener("DOMContentLoaded", function () {
   mapboxgl.accessToken = tokenmapbox;
-
+  console.log(markermapbox);
   let originalData = listofpoints;
   // Iteracja po istniejących punktach
   // Tworzymy tablicę, która będzie zawierać nowe obiekty typu "Feature"
@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Wyświetlenie wyniku
-  console.log(features[0].geometry.coordinates[0]);
   const geojson = {
     type: "FeatureCollection",
     features: features,
@@ -121,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
   spinGlobe();
   //zmiana markera na własny
   document.querySelectorAll(".marker").forEach((element) => {
-    element.style.backgroundImage = "url(" + markermapbox + ")";
+    element.style.backgroundImage = "url("+'/'+ markermapbox.imagefile + ")";
+    if(!markermapbox.alt_empty)element.setAttribute("alt",markermapbox.alt_text);
   });
 });
