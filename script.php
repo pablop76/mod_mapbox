@@ -13,7 +13,7 @@ return new class () implements InstallerScriptInterface {
 
     public function install(InstallerAdapter $adapter): bool
     {
-        echo "mod_mapbox install<br>";
+        echo "Thank you for installing and using my module.<br>";
         return true;
     }
 
