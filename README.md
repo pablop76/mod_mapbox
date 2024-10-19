@@ -1,5 +1,5 @@
 # Moduł Joomla Mapbox 
-<code style="color:red;">There can only be one map per page!!!</code>
+<code style="color : red;">There can only be one map per page!!!</code>
 ## Template 1
 only map
 ![template app](./template.png)
