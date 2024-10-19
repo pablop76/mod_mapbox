@@ -1,5 +1,5 @@
 # Moduł Joomla Mapbox 
-$${\color{red}There\space\can\space\only\space\be\space\one\space\map\space\per\space\page!!!}{github}}$$
+$${\color{red}There\space\can\space\only\space\be\space\one\space\map\space\per\space\page!!!}}$$
 ## Template 1
 only map
 ![template app](./template.png)
