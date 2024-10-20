@@ -48,17 +48,20 @@ $document->addScriptOptions('mod_mapbox.vars', ['markermapbox' => $markermapbox]
   <?php
 $points = $listofpoints;
 // ograniczenia długości  ciągu description
-function limit_string( $string, $limit, $end = "..." ){
-  $string = explode( ' ', $string, $limit );
-  if( count( $string ) >= $limit ){
-    array_pop( $string );
-    $string = implode( " ", $string ) . $end;
-  } else {
-    $string = implode( " ", $string );
+if (!function_exists('limit_string')) {
+  function limit_string( $string, $limit, $end = "..." ){
+    $string = explode( ' ', $string, $limit );
+    if( count( $string ) >= $limit ){
+      array_pop( $string );
+      $string = implode( " ", $string ) . $end;
+    } else {
+      $string = implode( " ", $string );
+    }
+  
+    return $string;
   }
-
-  return $string;
 }
+
 for ($i = 0; $i <= count((array)$listofpoints)-1; $i++) {
     $point = $points->{"listofpoints" . $i};?>
     <div data-index='<?php echo $i+1;?>' class="list-item">
@@ -68,11 +71,11 @@ for ($i = 0; $i <= count((array)$listofpoints)-1; $i++) {
     <?php
 }?>
 </div>
-  <div id="map"></div>
-   </div>
 <?php
 }
 ?>
+  <div id="map"></div>
+   </div>
    <!-- End slideshow -->
 <?php
 }
