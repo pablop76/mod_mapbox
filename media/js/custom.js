@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .setLngLat(feature.geometry.coordinates)
       .setPopup(
         new mapboxgl.Popup({ offset: 25 }) // add popups
-          .setHTML(`<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`)
+          .setHTML(`<h3 class="mapbox-popup-title">${feature.properties.title}</h3><p class="mapbox-popup-description">${feature.properties.description}</p>`)
       )
       .addTo(map);
   }
@@ -122,12 +122,23 @@ document.addEventListener("DOMContentLoaded", function () {
     element.style.backgroundImage = "url(" + "/" + markermapbox.imagefile + ")";
     if (!markermapbox.alt_empty) element.setAttribute("alt", markermapbox.alt_text);
   });
+  // Set the marker point centrally by clicking on the list outside the map
   const tableMapbox = document.querySelector(".table-mapbox");
   tableMapbox.addEventListener("click", (e) => {
     const tableElement = e.target.parentNode;
-    const longitude = tableElement.querySelector(".longitude");
-    const latitude = tableElement.querySelector(".latitude");
-    map.setCenter([longitude.textContent,latitude.textContent]);
-    console.log(longitude.textContent,latitude.textContent,"<br",map.getCenter());
+    const coordinates = features[tableElement.dataset.index - 1].geometry.coordinates;
+    const title = features[tableElement.dataset.index - 1].properties.title;
+    const description = features[tableElement.dataset.index - 1].properties.description;
+    map.setCenter([coordinates[0], coordinates[1]]);
+    // remove popup by clicking outside the map
+    for (var popup of document.getElementsByClassName("mapboxgl-popup")) {
+      popup.remove();
+    }
+    // adding a popup by clicking outside the map on the list of points
+    popup = new mapboxgl.Popup()
+    .setLngLat(coordinates)
+    .setHTML(`<h3 class="mapbox-popup-title">${title}</h3><p class="mapbox-popup-description">${description}</p>`)
+    .addTo(map);
+    console.log(features[tableElement.dataset.index - 1]);
   });
 });
