@@ -5,7 +5,7 @@ only map
 ![template app](./template.png)
 ## Template 2
 vertical list on the left side of the map
-![template app](./template-2.png)
+![template app](./template.png)
 ## Template 3
 table below the map with points
 ![template app](./template-3.png)
