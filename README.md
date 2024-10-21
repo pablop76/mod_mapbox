@@ -10,4 +10,4 @@ vertical list on the left side of the map
 table below the map with points
 ![template app](./template-3.png)
 ## configuration
-![template app](./configuration.png)
+![template app](./configuration-a.png)
