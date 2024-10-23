@@ -11,6 +11,7 @@ const { zoommapbox } = Joomla.getOptions("mod_mapbox.vars");
 const { geotitle } = Joomla.getOptions("mod_mapbox.vars");
 const { geodescription } = Joomla.getOptions("mod_mapbox.vars");
 const { markermapbox } = Joomla.getOptions("mod_mapbox.vars");
+// const { popupimage } = Joomla.getOptions("mod_mapbox.vars");
 document.addEventListener("DOMContentLoaded", function () {
   mapboxgl.accessToken = tokenmapbox;
   let originalData = listofpoints;
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
       properties: {
         title: point.geotitle,
         description: point.geodescription,
+        popupimage: point.popupimage,
       },
     };
 
@@ -56,6 +58,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const el = document.createElement("div");
     el.className = "marker";
 
+    const imageshow = function(){
+      // imgpopup.src = feature.properties.popupimage.imagefile;
+      if(feature.properties.popupimage.imagefile){
+        return `<img src=/${feature.properties.popupimage.imagefile}/>`;
+      }else{
+        return "";
+      }
+    }
+
     // make a marker for each feature and add to the map
     new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
 
@@ -63,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .setLngLat(feature.geometry.coordinates)
       .setPopup(
         new mapboxgl.Popup({ offset: 25 }) // add popups
-          .setHTML(`<h3 class="mapbox-popup-title">${feature.properties.title}</h3><p class="mapbox-popup-description">${feature.properties.description}</p>`)
+          .setHTML(`${imageshow()}<h3 class="mapbox-popup-title">${feature.properties.title}</h3><p class="mapbox-popup-description">${feature.properties.description}</p>`)
       )
       .addTo(map);
   }
@@ -129,6 +140,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const coordinates = features[tableElement.dataset.index - 1].geometry.coordinates;
     const title = features[tableElement.dataset.index - 1].properties.title;
     const description = features[tableElement.dataset.index - 1].properties.description;
+    const popupimage = function(){
+      if(features[tableElement.dataset.index - 1].properties.popupimage.imagefile){
+        return `<img src=/${features[tableElement.dataset.index - 1].properties.popupimage.imagefile}/>`
+      }else{
+        return "";
+      }
+    }
     map.setCenter([coordinates[0], coordinates[1]]);
     // remove popup by clicking outside the map
     for (var popup of document.getElementsByClassName("mapboxgl-popup")) {
@@ -137,8 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // adding a popup by clicking outside the map on the list of points
     popup = new mapboxgl.Popup()
     .setLngLat(coordinates)
-    .setHTML(`<h3 class="mapbox-popup-title">${title}</h3><p class="mapbox-popup-description">${description}</p>`)
+    .setHTML(`${popupimage()}<h3 class="mapbox-popup-title">${title}</h3><p class="mapbox-popup-description">${description}</p>`)
     .addTo(map);
-    console.log(features[tableElement.dataset.index - 1]);
   });
 });

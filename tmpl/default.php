@@ -28,7 +28,8 @@ $geotitle = $params->get('geotitle', '');
 $geodescription = $params->get('geodescription', '');
 $markermapbox = $params->get('markermapbox', '');
 $pointslistmapbox = $params->get('pointslistmapbox', '');
-$positionpointslistmapbox = $params->get('positionpointslistmapbox', '');
+$positionpointslistmapbox = $params->get('positionpointslistmapbox', 'https://placehold.co/300x200');
+$popupimage = $params->get('popupimage', '');
 
 $document->addScriptOptions('mod_mapbox.vars', ['tokenmapbox' => $tokenmapbox]);
 $document->addScriptOptions('mod_mapbox.vars', ['stylemapbox' => $stylemapbox]);
@@ -37,6 +38,7 @@ $document->addScriptOptions('mod_mapbox.vars', ['zoommapbox' => $zoommapbox]);
 $document->addScriptOptions('mod_mapbox.vars', ['geotitle' => $geotitle]);
 $document->addScriptOptions('mod_mapbox.vars', ['geodescription' => $geodescription]);
 $document->addScriptOptions('mod_mapbox.vars', ['markermapbox' => $markermapbox]);
+$document->addScriptOptions('mod_mapbox.vars', ['popupimage' => $popupimage]);
 
 ?>
 

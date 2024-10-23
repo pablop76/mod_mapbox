@@ -13,26 +13,25 @@ return new class () implements InstallerScriptInterface {
 
     public function install(InstallerAdapter $adapter): bool
     {
-        echo "Thank you for installing and using my module.<br>";
+        Text::_('MOD_MAPBOX_INSTALLEDTHANK')."<br>";
         return true;
     }
 
     public function update(InstallerAdapter $adapter): bool
     {
 
-        echo "mod_mapbox update<br>";
+        Text::_('MOD_MAPBOX_UPDATE')."<br>";
         return true;
     }
 
     public function uninstall(InstallerAdapter $adapter): bool
     {
-        echo "mod_mapbox uninstall<br>";
+        echo Text::_('MOD_MAPBOX_UNINSTALLED')."<br>";
         return true;
     }
 
     public function preflight(string $type, InstallerAdapter $adapter): bool
     {
-        echo "mod_mapbox preflight<br>";
         
         if (version_compare(PHP_VERSION, $this->minimumPhp, '<')) {
             Factory::getApplication()->enqueueMessage(sprintf(Text::_('JLIB_INSTALLER_MINIMUM_PHP'), $this->minimumPhp), 'error');
@@ -49,7 +48,7 @@ return new class () implements InstallerScriptInterface {
 
     public function postflight(string $type, InstallerAdapter $adapter): bool
     {
-        echo "mod_mapbox postflight<br>";
+        echo Text::_('MOD_MAPBOX_PROCESS_COMPLETED')."<br>";
         return true;
     }
 };

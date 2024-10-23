@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade">
     <name>MOD_MAPBOX_NAME</name>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <author>pablo76</author>
-    <creationDate>19.10.2024</creationDate>
+    <creationDate>20.10.2024</creationDate>
     <description>MOD_MAPBOX_DESCRIPTION</description>
     <namespace path="src">Pablop76\Module\Mapbox</namespace>
     <files>
@@ -61,6 +61,11 @@
                             label="MOD_MAPBOX_GEODESCRIPTION_MAPBOX"
                         >
                         </field>
+                        <field
+                            name="popupimage"
+                            type="accessiblemedia"
+                            directory="stories"
+                            label="Dodaj zdjęcie do popup markera" />
                     </form>
                 </field>
                 <field
@@ -94,14 +99,13 @@
                 </field>
                 <field
                     name="positionpointslistmapbox"
-                    type="radio"
-                    default="0"
+                    type="list"
                     label="MOD_MAPBOX_POSITION_LIST_POINTS"
-                    description=""
-                    class="btn-group"
-                    showon="pointslistmapbox:1">
-                    <option value="0">MOD_MAPBOX_TABLE_BOTTOM_LIST_POINTS</option>
-                    <option value="1">MOD_MAPBOX_COROUSEL_LIST_POINTS_LEFT</option>
+                    default="0"
+                    showon="pointslistmapbox:1"> > <option value="0">
+                    MOD_MAPBOX_TABLE_BOTTOM_LIST_POINTS</option>
+                    <option value="1">
+                    MOD_MAPBOX_COROUSEL_LIST_POINTS_LEFT</option>
                 </field>
             </fieldset>
         </fields>
